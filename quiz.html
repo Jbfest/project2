@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Are You Getting Your Greens?</title>
+<link href="bootstrap.min.css" rel="stylesheet" media="screen">
+<style>
+
+@import url('https://fonts.googleapis.com/css?family=Arvo|Oswald');
+
+body {
+background-color: darkgreen;
+}
+
+#main {
+width: 80%;
+max-width: 1000px;
+border: 1px gray solid;
+margin: auto;
+padding: 30px;
+background-color: white;
+}
+
+#header {
+margin-top: 0;
+border: 2px solid black;
+height: 150px;
+background: beige;
+background-image: url("broccoli.jpeg");
+color: white;
+}
+
+label {
+display: block;
+background: #667E4D;
+color: white;
+font-family: arvo;
+}
+
+label:hover {
+  background: white;
+  color: black;
+  font-family: arvo;
+}
+
+input {
+width: 30px;
+margin-left: 20px;
+}
+
+h1 {
+  text-align: center;
+  font-size: 80px;
+  font-family: Oswald;
+}
+
+button {
+width: 200px;
+margin-top: 20px;
+margin-left: auto;
+margin-right: auto;
+display: block;
+background: #667E4D;
+color: white;
+font-family: arvo;
+}
+
+button:hover {
+background: white;
+color: black;
+font-family: arvo;
+}
+
+h5 {
+  font-size: 15px;
+  color: #667E4D;
+  font-family: arvo;
+}
+
+.blacky {
+  border: 1px solid black;
+  width: 33%;
+  height: 300px;
+  margin-top: 20px;
+  background: #F5EFB1;
+}
+p{
+  color: #667E4D;
+  font-family: arvo;
+}
+
+
+</style>
+
+
+</head>
+
+<body>
+<div id="main"><!-- open main div -->
+<div id="header"><!-- open header div -->
+<h1>Nutrition IQ Quiz</h1>
+</div><!-- close header div -->
+<div class="row">
+  <div class="col-md-4 blacky">
+<form id="form1">
+
+<h5>What is the recommended daily consumption of vitamin A?</h5>
+<label for="var_string"><input type="radio" name="vita" value="0" id="var_string" />A carrot a day will provide your body with enough Vitamin A.</label>
+<label for="var_join"><input type="radio" name="vita" value="20" id="var_join" />900 IU/day for men, 700 IU for women.</label>
+<label for="var_info"><input type="radio" name="vita" value="0" id="var_info" />Rabbits like carrots. </label>
+<label for="var_condition"><input type="radio" name="vita" value="0" id="var_condition"/>I have no idea.</label>
+</div>
+
+<div class="col-md-4 blacky">
+<h5>Which is considered the king of all the healthy leafy greens?
+</h5>
+<label for="sub_string"><input type="radio" name="sub" value="0" id="sub_string"/>Lebron James</label>
+<label for="sub_join"><input type="radio" name="sub" value="20" id="sub_join"/>Kale.</label>
+<label for="sub_info"><input type="radio" name="sub" value="0" id="sub_info" />Spinach</label>
+<label for="sub_condition"><input type="radio" name="sub" value="0" id="sub_condition" />Popeye endorsed spinach.</label>
+</div>
+<div class="col-md-4 blacky">
+<h5>What is the recommended daily intake of Vitamin C?
+</h5>
+<label for="cat_string"><input type="radio" name="con" value="0" id="cat_string" />A glass of orange juice.</label>
+<label for="cat_join"><input type="radio" name="con" value="0" id="cat_join" />6 vitamin C pills.</label>
+<label for="cat_info"><input type="radio" name="con" value="0" id="cat_info" />An Emergen-C packet for breakfast, lunch and dinner.</label>
+<label for="cat_condition"><input type="radio" name="con" value="20" id="cat_condition" />90 mg/day for men, 75 mg/day for women.</label>
+</div>
+</div>
+<div class="row">
+<div class="col-md-4 blacky">
+<h5> Which vegetable contains the highest source of Vitamin C?
+</h5>
+<label for="if_string"><input type="radio" name="ifstate" value="0" id="if_string" />Orange.</label>
+<label for="if_join"><input type="radio" name="ifstate" value="0" id="if_join" />Carrots.</label>
+<label for="if_info"><input type="radio" name="ifstate" value="20" id="if_info" />Broccoli</label>
+<label for="if_condition"><input type="radio" name="ifstate"  value="0" id="if_condition" />Who lives in a pineapple under the sea?.</label>
+</div>
+<div class="col-md-4 blacky">
+<h5>Which is a tiny nutritional powerhouse that is high in calcium and delivers protein and healthy fats?
+</h5>
+<label for="if_string"><input type="radio" name="seed" value="0" id="if_string" />Blueberries</label>
+<label for="if_join"><input type="radio" name="seed" value="0" id="if_join" />Cheese</label>
+<label for="if_info"><input type="radio" name="seed" value="20" id="if_info" />Seeds</label>
+<label for="if_condition"><input type="radio" name="seed"  value="0" id="if_condition" />Kiwi</label>
+
+
+</div>
+
+
+<div class="col-md-4 blacky">
+  <button type="submit" value="Submit">Submit</button>
+
+  </form>
+
+
+<p>Your grade is: <span id="grade">__</span></p>
+<p id="grade2"></p>
+</div>
+</div>
+
+
+
+</div><!-- close main div -->
+
+
+
+
+<script>
+document.getElementById("form1").onsubmit=function() {
+       vita = parseInt(document.querySelector('input[name = "vita"]:checked').value);
+	   sub = parseInt(document.querySelector('input[name = "sub"]:checked').value);
+	   con = parseInt(document.querySelector('input[name = "con"]:checked').value);
+	   ifstate = parseInt(document.querySelector('input[name = "ifstate"]:checked').value);
+    seed = parseInt(document.querySelector('input[name = "seed"]:checked').value);
+
+
+	   result = vita + sub + con + ifstate + seed ;
+
+	document.getElementById("grade").innerHTML = result ;
+
+  if (result == 0) {result2 = "Fun fact: you are not very educated on your greens "};
+  if (result == 20) {result2 = " Fun fact: Spinach and kale are both superfoods and everyone should include the two into their diet, but Kale is the King because it is loaded with vitamins, minerals, fiber, antioxidants and various bioactive compounds and kale is king has a nice ring to it"};
+  if (result == 40) {result2 = "Fun fact: The body is not able to make vitamin C on its own, and it does not store vitamin C. It is therefore important to include plenty of vitamin C-containing foods in your daily diet."};
+  if (result == 60) {result2 = " Fun fact: Broccoli is the vegetable that is rich in vitamin C. Citrus fruits such as the orange and pineapple are great sources of vitamin C as well"};
+  if (result == 80) {result2 = "Fun fact: B's get degrees"};
+  if (result == 100) {result2 = "Good job, you definitely get your greens!"};
+document.getElementById("grade2").innerHTML = result2;
+
+
+return false; // required to not refresh the page; just leave this here
+} //this ends the submit function
+
+
+
+
+
+
+</script>
+
+
+</body>
+
+
+
+</html>
